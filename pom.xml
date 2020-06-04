@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com</groupId>
-	<artifactId>monitoring-backend</artifactId>
+	<artifactId>springboot-project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>monitoring-backend</name>
+	<name>springboot-project</name>
 	<description>Monitoring for Monitoring of enviroments</description>
 
 	<properties>

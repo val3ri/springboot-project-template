@@ -1,7 +1,7 @@
-package monitoring.core;
+package springboot.project.core;
 
-import monitoring.model.BookEntity;
-import monitoring.repository.BookRepository;
+import springboot.project.model.BookEntity;
+import springboot.project.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package monitoring.model;
+package springboot.project.model;
 
 import lombok.Data;
 

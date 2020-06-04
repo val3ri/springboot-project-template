@@ -1,7 +1,7 @@
-package monitoring.controller;
+package springboot.project.controller;
 
-import monitoring.core.RestService;
-import monitoring.model.BookEntity;
+import springboot.project.core.RestService;
+import springboot.project.model.BookEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +18,7 @@ public class LibraryController {
         this.restService = restService;
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+//    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = "/books")
     public List<BookEntity> getEmployees() {
         return restService.findAll();

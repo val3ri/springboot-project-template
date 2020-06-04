@@ -1,6 +1,6 @@
-package monitoring.repository;
+package springboot.project.repository;
 
-import monitoring.model.BookEntity;
+import springboot.project.model.BookEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
