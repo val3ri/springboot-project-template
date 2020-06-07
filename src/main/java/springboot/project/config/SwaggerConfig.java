@@ -24,7 +24,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .directModelSubstitute(Duration.class, String.class)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("monitoring.controller"))
+                .apis(RequestHandlerSelectors.basePackage("springboot.project.controller"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(apiInfo());
