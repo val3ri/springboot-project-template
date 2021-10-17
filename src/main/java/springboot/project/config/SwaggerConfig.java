@@ -36,7 +36,7 @@ public class SwaggerConfig {
                 "Test project with db, ui for db, backend spring boot, frontend angular",
                 "0.0.1-SNAPSHOT",
                 "Terms of service",
-                new Contact("Valeri Penchev", "", "val3ri.penchev@gmail.de"),
+                new Contact("Valeri Penchev", "", "val3ri.penchev@gmail.com"),
                 "License of API", "API license URL", Collections.emptyList());
     }
 

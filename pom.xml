@@ -5,18 +5,18 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.3.0.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<version>2.5.0</version>
+		<relativePath/>
 	</parent>
 	<groupId>com</groupId>
 	<artifactId>springboot-project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springboot-project</name>
-	<description>Monitoring for Monitoring of enviroments</description>
+	<description>example spring boot project</description>
 
 	<properties>
-		<java.version>14</java.version>
-		<swagger.version>2.9.2</swagger.version>
+		<java.version>17</java.version>
+		<swagger.version>3.0.0</swagger.version>
 	</properties>
 
 	<dependencies>

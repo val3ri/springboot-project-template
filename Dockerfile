@@ -1,4 +1,4 @@
-FROM openjdk:14-slim
+FROM openjdk:17-slim
 
 # not sure if that is needed ?
 # RUN addgroup -S spring && adduser -S spring -G spring

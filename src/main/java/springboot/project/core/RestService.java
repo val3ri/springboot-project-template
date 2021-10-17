@@ -1,9 +1,9 @@
 package springboot.project.core;
 
-import springboot.project.model.BookEntity;
-import springboot.project.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import springboot.project.model.BookEntity;
+import springboot.project.repository.BookRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
