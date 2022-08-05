@@ -6,13 +6,17 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import springboot.project.payload.BookDto;
+import springboot.project.payload.BookResponse;
 import springboot.project.service.BookService;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/library")
 public class LibraryController {
+
+    public static final String DEFAULT_PAGE_NUMBER = "0";
+    public static final String DEFAULT_PAGE_SIZE = "10";
+    public static final String DEFAULT_SORT_BY = "id";
+    public static final String DEFAULT_SORT_DIRECTION = "asc";
 
     // using interface -> because of the loose coupling
     private BookService bookService;
@@ -23,8 +27,13 @@ public class LibraryController {
     }
 
     @GetMapping(value = "/books")
-    public List<BookDto> getAllBooks() {
-        return bookService.getAllBooks();
+    public BookResponse getAllBooks(
+            @RequestParam(value = "pageNo", defaultValue = DEFAULT_PAGE_NUMBER, required = false) int pageNo,
+            @RequestParam(value = "pageSize", defaultValue = DEFAULT_PAGE_SIZE, required = false) int pageSize,
+            @RequestParam(value = "sortBy", defaultValue = DEFAULT_SORT_BY, required = false) String sortBy,
+            @RequestParam(value = "sortDir", defaultValue = DEFAULT_SORT_DIRECTION, required = false) String sortDir
+    ) {
+        return bookService.getAllBooks(pageNo, pageSize, sortBy, sortDir);
     }
 
     @GetMapping(value = "/book/{id}", produces = MediaType.APPLICATION_JSON_VALUE)

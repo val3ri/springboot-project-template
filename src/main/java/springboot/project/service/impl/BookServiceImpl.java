@@ -1,14 +1,17 @@
 package springboot.project.service.impl;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import springboot.project.entity.Book;
 import springboot.project.exception.ResourceNotFoundException;
 import springboot.project.payload.BookDto;
+import springboot.project.payload.BookResponse;
 import springboot.project.repository.BookRepository;
 import springboot.project.service.BookService;
 
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class BookServiceImpl implements BookService {
@@ -32,9 +35,22 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<BookDto> getAllBooks() {
-        List<Book> books = bookRepository.findAll();
-        return books.stream().map(book -> mapToDto(book)).toList();
+    public BookResponse getAllBooks(int pageNo, int pageSize, String sortBy, String sortDir) {
+        // create Pageable instance
+        Pageable pageable = PageRequest.of(pageNo, pageSize, Sort.by(Sort.Direction.fromString(sortDir), sortBy));
+        Page<Book> books = bookRepository.findAll(pageable);
+
+        // get content for page object
+        BookResponse bookResponse = new BookResponse();
+
+        bookResponse.setContent(books.getContent().stream().map(book -> mapToDto(book)).toList());
+        bookResponse.setPageNo(books.getNumber());
+        bookResponse.setPageSize(books.getSize());
+        bookResponse.setTotalElements(books.getTotalElements());
+        bookResponse.setTotalPages(books.getTotalPages());
+        bookResponse.setLast(books.isLast());
+
+        return bookResponse;
 
     }
 

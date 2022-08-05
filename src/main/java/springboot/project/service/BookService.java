@@ -1,14 +1,13 @@
 package springboot.project.service;
 
 import springboot.project.payload.BookDto;
-
-import java.util.List;
+import springboot.project.payload.BookResponse;
 
 public interface BookService {
 
     BookDto addBook(BookDto bookDto);
 
-    List<BookDto> getAllBooks();
+    BookResponse getAllBooks(int pageNo, int pageSize, String sortBy, String sortDir);
 
     BookDto getBookById(long id);
 
