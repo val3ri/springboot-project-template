@@ -1,5 +1,6 @@
 package springboot.project.service.impl;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -16,11 +17,13 @@ import springboot.project.service.BookService;
 @Service
 public class BookServiceImpl implements BookService {
 
+    private ModelMapper modelMapper;
     private BookRepository bookRepository;
 
     // constructor based dependency injection
-    public BookServiceImpl(BookRepository bookRepository) {
+    public BookServiceImpl(BookRepository bookRepository, ModelMapper modelMapper) {
         this.bookRepository = bookRepository;
+        this.modelMapper = modelMapper;
     }
 
     @Override
@@ -79,15 +82,12 @@ public class BookServiceImpl implements BookService {
 
     // convert entity to dto
     private BookDto mapToDto(Book book) {
-        return new BookDto(book.getId(), book.getTitle(), book.getAuthor());
+        return modelMapper.map(book, BookDto.class);
     }
 
     // convert dto to entity
     private Book mapToEntity(BookDto bookDto) {
-        Book book = new Book();
-        book.setTitle(bookDto.getTitle());
-        book.setAuthor(bookDto.getAuthor());
-        return book;
+        return modelMapper.map(bookDto, Book.class);
     }
 
 }
