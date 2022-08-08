@@ -69,6 +69,7 @@ public class BookServiceImpl implements BookService {
 
         found.setTitle(bookDto.getTitle());
         found.setAuthor(bookDto.getAuthor());
+        found.setPublicationDate(bookDto.getPublicationDate());
         Book savedBook = bookRepository.save(found);
 
         return mapToDto(savedBook);
