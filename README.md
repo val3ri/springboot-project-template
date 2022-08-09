@@ -7,3 +7,13 @@ started with docker-compose file
 - [frontend container (angular)](https://github.com/val3ri/angular-project-template)
 
 You need this [docker-compose.yml file](https://github.com/val3ri/infrastructure-for-fullstack-project) for building this multiple container application.
+
+#### Build springboot jar file (used in the docker image)
+```
+./mvnw package
+```
+
+#### Building docker image 
+```
+docker build -t springbootapp .
+```
